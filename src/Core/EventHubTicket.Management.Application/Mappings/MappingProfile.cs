@@ -22,6 +22,16 @@ namespace EventHubTicket.Management.Application.Mappings
                 .ReverseMap();
 
             CreateMap<Category, CategoryDto>();
+
+            CreateMap<Category, CategoryListViewModel>()
+                .ForMember(dest =>
+                    dest.CategoryId,
+                    opt => opt.MapFrom(src => src.Id));
+
+            CreateMap<Category, CategoryEventListViewModel>()
+                .ForMember(dest =>
+                    dest.CategoryId,
+                    opt => opt.MapFrom(src => src.Id));
         }
     }
 }
