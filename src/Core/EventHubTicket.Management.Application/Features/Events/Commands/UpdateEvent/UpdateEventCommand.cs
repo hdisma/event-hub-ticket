@@ -1,9 +1,10 @@
 ﻿using MediatR;
 
-namespace EventHubTicket.Management.Application.Features.Events.Commands.CreateEvent
+namespace EventHubTicket.Management.Application.Features.Events.Commands.UpdateEvent
 {
-    public class CreateEventCommand : IRequest<Guid>
+    public class UpdateEventCommand : IRequest
     {
+        public Guid EventId { get; set; }
         public string Name { get; set; } = string.Empty;
         public int Price { get; set; }
         public string? Organizer { get; set; }
@@ -11,11 +12,5 @@ namespace EventHubTicket.Management.Application.Features.Events.Commands.CreateE
         public string? Description { get; set; }
         public string? ImageUrl { get; set; }
         public Guid CategoryId { get; set; }
-
-        public override string ToString()
-        {
-            return $"Event name: {Name}; Price: {Price}; By: {Organizer}; On: {Date.ToString()};" +
-                $"Description: {Description}";
-        }
     }
 }

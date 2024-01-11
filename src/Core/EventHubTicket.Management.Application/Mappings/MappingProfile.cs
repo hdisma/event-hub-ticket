@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using EventHubTicket.Management.Application.Dtos;
+using EventHubTicket.Management.Application.Features.Events.Commands.CreateEvent;
+using EventHubTicket.Management.Application.Features.Events.Commands.UpdateEvent;
 using EventHubTicket.Management.Application.ViewModels;
 using EventHubTicket.Management.Domain.Entities;
 
@@ -32,6 +34,21 @@ namespace EventHubTicket.Management.Application.Mappings
                 .ForMember(dest =>
                     dest.CategoryId,
                     opt => opt.MapFrom(src => src.Id));
+
+            CreateMap<Event, CreateEventCommand>()
+                .ReverseMap();
+
+            CreateMap<Event, UpdateEventCommand>()
+                .ForMember(dest =>
+                    dest.EventId,
+                    opt => opt.MapFrom(src => src.Id))
+                .ReverseMap();
+
+            CreateMap<Event, CategoryEventDto>()
+                .ForMember(dest =>
+                    dest.EventId,
+                    opt => opt.MapFrom(src => src.Id))
+                .ReverseMap();
         }
     }
 }
