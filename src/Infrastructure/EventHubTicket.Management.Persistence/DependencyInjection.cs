@@ -9,7 +9,7 @@ namespace EventHubTicket.Management.Persistence
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddApplication(this IServiceCollection services,
+        public static IServiceCollection AddPersistence(this IServiceCollection services,
             IConfiguration configuration)
         {
             services.AddDbContext<EventHubTicketDbContext>(options =>
