@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\EventHubTicket.Management.Application\EventHubTicket.Management.Application.csproj" />
     <ProjectReference Include="..\..\Core\EventHubTicket.Management.Domain\EventHubTicket.Management.Domain.csproj" />
   </ItemGroup>
 
