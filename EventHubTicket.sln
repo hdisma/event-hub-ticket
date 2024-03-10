@@ -19,6 +19,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHubTicket.Management.P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventHubTicket.Management.Infrastructure", "src\Infrastructure\EventHubTicket.Management.Infrastructure\EventHubTicket.Management.Infrastructure.csproj", "{FF9DAF83-E397-4E4D-97AD-B4E5596DCDC4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{DB0D7CC6-E394-4A6F-AA1F-12EB5D7FE3C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventHubTicket.Management.Api", "src\Api\EventHubTicket.Management.Api\EventHubTicket.Management.Api.csproj", "{ED0E3756-3591-43C8-B803-AE232C6A1A03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,10 @@ Global
 		{FF9DAF83-E397-4E4D-97AD-B4E5596DCDC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF9DAF83-E397-4E4D-97AD-B4E5596DCDC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF9DAF83-E397-4E4D-97AD-B4E5596DCDC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED0E3756-3591-43C8-B803-AE232C6A1A03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED0E3756-3591-43C8-B803-AE232C6A1A03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED0E3756-3591-43C8-B803-AE232C6A1A03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED0E3756-3591-43C8-B803-AE232C6A1A03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +60,8 @@ Global
 		{98254ACF-5197-4B75-9594-0A0D68CDED48} = {3ED24BB3-71CF-496F-8A08-C9E882AADE68}
 		{D70418F6-8930-4227-9F97-3B15E5B5FE93} = {914FE615-BF73-43A7-B93F-C02A6A7566C6}
 		{FF9DAF83-E397-4E4D-97AD-B4E5596DCDC4} = {914FE615-BF73-43A7-B93F-C02A6A7566C6}
+		{DB0D7CC6-E394-4A6F-AA1F-12EB5D7FE3C6} = {DE897447-F848-465C-B816-7AF36BD48130}
+		{ED0E3756-3591-43C8-B803-AE232C6A1A03} = {DB0D7CC6-E394-4A6F-AA1F-12EB5D7FE3C6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E7D7AA9C-830B-4C69-AF3A-09CDB0B33C6A}
