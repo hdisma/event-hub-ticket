@@ -1,4 +1,5 @@
-﻿using EventHubTicket.Management.Domain.Entities;
+﻿using EventHubTicket.Management.Domain.Common;
+using EventHubTicket.Management.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace EventHubTicket.Management.Persistence.DbContexts
@@ -182,6 +183,24 @@ namespace EventHubTicket.Management.Persistence.DbContexts
                 OrderPlaced = DateTime.Now,
                 UserId = Guid.Parse("{7AEB2C01-FE8E-4B84-A5BA-330BDF950F5C}")
             });
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            foreach (var entry in ChangeTracker.Entries<BaseAuditableEntity>())
+            {
+                switch (entry.State)
+                {
+                    case EntityState.Added:
+                        entry.Entity.CreatedDate = DateTime.Now;
+                        break;
+                    case EntityState.Modified:
+                        entry.Entity.LastModifiedDate = DateTime.Now;
+                        break;
+                }
+            }
+
+            return base.SaveChangesAsync(cancellationToken);
         }
     }
 }
