@@ -9,13 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{336793DF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{3ED24BB3-71CF-496F-8A08-C9E882AADE68}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{914FE615-BF73-43A7-B93F-C02A6A7566C6}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHubTicket.Management.Domain", "src\Core\EventHubTicket.Management.Domain\EventHubTicket.Management.Domain.csproj", "{9898EDBF-9E03-4D09-83D2-7460DB37FC0E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHubTicket.Management.Application", "src\Core\EventHubTicket.Management.Application\EventHubTicket.Management.Application.csproj", "{98254ACF-5197-4B75-9594-0A0D68CDED48}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{914FE615-BF73-43A7-B93F-C02A6A7566C6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventHubTicket.Management.Persistence", "src\Infrastructure\EventHubTicket.Management.Persistence\EventHubTicket.Management.Persistence.csproj", "{D70418F6-8930-4227-9F97-3B15E5B5FE93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHubTicket.Management.Persistence", "src\Infrastructure\EventHubTicket.Management.Persistence\EventHubTicket.Management.Persistence.csproj", "{D70418F6-8930-4227-9F97-3B15E5B5FE93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
