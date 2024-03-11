@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EventHubTicket.Management.Persistence.Repositories
 {
-    public abstract class BaseRepository<T> : IAsyncRepository<T> where T : class
+    public class BaseRepository<T> : IAsyncRepository<T> where T : class
     {
         protected readonly EventHubTicketDbContext _dbContext;
 
