@@ -2,7 +2,6 @@
 using EventHubTicket.Management.Domain.Entities;
 using EventHubTicket.Management.Persistence.DbContexts;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query;
 
 namespace EventHubTicket.Management.Persistence.Repositories
 {
@@ -19,8 +18,8 @@ namespace EventHubTicket.Management.Persistence.Repositories
 
             if (!includePassedEvents)
             {
-                categories = (IIncludableQueryable<Category, ICollection<Event>?>)categories
-                    .Where(c => c.Events!.All(e => e.Date >= DateTime.Now));
+                return await categories
+                    .Where(c => c.Events!.All(e => e.Date >= DateTime.Now)).ToListAsync();
             }
 
             return await categories.ToListAsync();
