@@ -1,4 +1,5 @@
-﻿using EventHubTicket.Management.Application.Features.Categories.Queries.GetCategories;
+﻿using EventHubTicket.Management.Application.Features.Categories.Commands;
+using EventHubTicket.Management.Application.Features.Categories.Queries.GetCategories;
 using EventHubTicket.Management.Application.Features.Categories.Queries.GetCategoriesWithEvents;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -31,6 +32,12 @@ namespace EventHubTicket.Management.Api.Controllers
             };
 
             return Ok(await _mediator.Send(getCategoriesWithEventsQuery));
+        }
+
+        [HttpPost(Name = "CreateCategory")]
+        public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryCommand createCategoryCommand)
+        {
+            return Ok(await _mediator.Send(createCategoryCommand));
         }
     }
 }

@@ -17,11 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHubTicket.Management.A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHubTicket.Management.Persistence", "src\Infrastructure\EventHubTicket.Management.Persistence\EventHubTicket.Management.Persistence.csproj", "{D70418F6-8930-4227-9F97-3B15E5B5FE93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventHubTicket.Management.Infrastructure", "src\Infrastructure\EventHubTicket.Management.Infrastructure\EventHubTicket.Management.Infrastructure.csproj", "{FF9DAF83-E397-4E4D-97AD-B4E5596DCDC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHubTicket.Management.Infrastructure", "src\Infrastructure\EventHubTicket.Management.Infrastructure\EventHubTicket.Management.Infrastructure.csproj", "{FF9DAF83-E397-4E4D-97AD-B4E5596DCDC4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{DB0D7CC6-E394-4A6F-AA1F-12EB5D7FE3C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventHubTicket.Management.Api", "src\Api\EventHubTicket.Management.Api\EventHubTicket.Management.Api.csproj", "{ED0E3756-3591-43C8-B803-AE232C6A1A03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHubTicket.Management.Api", "src\Api\EventHubTicket.Management.Api\EventHubTicket.Management.Api.csproj", "{ED0E3756-3591-43C8-B803-AE232C6A1A03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

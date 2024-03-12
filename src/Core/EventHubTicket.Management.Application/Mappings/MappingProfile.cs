@@ -25,6 +25,8 @@ namespace EventHubTicket.Management.Application.Mappings
 
             CreateMap<Category, CategoryDto>();
 
+            CreateMap<Category, CreateCategoryDto>();
+
             CreateMap<Category, CategoryListViewModel>()
                 .ForMember(dest =>
                     dest.CategoryId,
