@@ -3,6 +3,7 @@ using EventHubTicket.Management.Application.Features.Events.Commands.DeleteEvent
 using EventHubTicket.Management.Application.Features.Events.Commands.UpdateEvent;
 using EventHubTicket.Management.Application.Features.Events.Queries.GetEventDetail;
 using EventHubTicket.Management.Application.Features.Events.Queries.GetEvents;
+using EventHubTicket.Management.Application.Features.Events.Queries.GetEventsExport;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -51,6 +52,14 @@ namespace EventHubTicket.Management.Api.Controllers
         {
             await _mediator.Send(new DeleteEventCommand() { EventId = id });
             return NoContent();
+        }
+
+        [HttpGet("export", Name = "ExportEvents")]
+        public async Task<IActionResult> ExportEvents()
+        {
+            var file = await _mediator.Send(new GetEventsExportQuery());
+
+            return File(file.Data!, file.ContentType, file.FileName);
         }
     }
 }

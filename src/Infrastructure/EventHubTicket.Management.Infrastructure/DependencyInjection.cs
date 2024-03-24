@@ -1,5 +1,6 @@
 ﻿using EventHubTicket.Management.Application.Abstractions.Infrastructure;
 using EventHubTicket.Management.Application.Models.Mail;
+using EventHubTicket.Management.Infrastructure.File;
 using EventHubTicket.Management.Infrastructure.Mail;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +15,8 @@ namespace EventHubTicket.Management.Infrastructure
             services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
 
             services.AddTransient<IEmailService, EmailService>();
+
+            services.AddScoped<ICsvExporter, CsvExporter>();
 
             return services;
         }
