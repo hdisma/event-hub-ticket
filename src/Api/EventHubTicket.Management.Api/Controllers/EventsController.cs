@@ -1,4 +1,5 @@
 ﻿using EventHubTicket.Management.Application.Features.Events.Commands.CreateEvent;
+using EventHubTicket.Management.Application.Features.Events.Commands.UpdateEvent;
 using EventHubTicket.Management.Application.Features.Events.Queries.GetEventDetail;
 using EventHubTicket.Management.Application.Features.Events.Queries.GetEvents;
 using MediatR;
@@ -35,6 +36,13 @@ namespace EventHubTicket.Management.Api.Controllers
             var newEventId = await _mediator.Send(createEventCommand);
 
             return Created("GetEvent", new { id = newEventId });
+        }
+
+        [HttpPut(Name = "UpdateEvent")]
+        public async Task<IActionResult> UpdateEvent([FromBody] UpdateEventCommand updateEventCommand)
+        {
+            await _mediator.Send(updateEventCommand);
+            return NoContent();
         }
     }
 }
