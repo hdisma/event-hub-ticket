@@ -1,4 +1,5 @@
 ﻿using EventHubTicket.Management.Application.Features.Events.Commands.CreateEvent;
+using EventHubTicket.Management.Application.Features.Events.Commands.DeleteEvent;
 using EventHubTicket.Management.Application.Features.Events.Commands.UpdateEvent;
 using EventHubTicket.Management.Application.Features.Events.Queries.GetEventDetail;
 using EventHubTicket.Management.Application.Features.Events.Queries.GetEvents;
@@ -42,6 +43,13 @@ namespace EventHubTicket.Management.Api.Controllers
         public async Task<IActionResult> UpdateEvent([FromBody] UpdateEventCommand updateEventCommand)
         {
             await _mediator.Send(updateEventCommand);
+            return NoContent();
+        }
+
+        [HttpDelete(Name = "DeleteEvent")]
+        public async Task<IActionResult> DeleteEvent(Guid id)
+        {
+            await _mediator.Send(new DeleteEventCommand() { EventId = id });
             return NoContent();
         }
     }
