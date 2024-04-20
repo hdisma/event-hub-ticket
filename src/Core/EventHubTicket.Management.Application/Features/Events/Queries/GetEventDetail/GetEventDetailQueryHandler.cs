@@ -29,7 +29,7 @@ namespace EventHubTicket.Management.Application.Features.Events.Queries.GetEvent
             var @event = await _eventRepository.GetByIdAsync(request.Id);
             var eventDetailViewModel = _mapper.Map<EventDetailViewModel>(@event);
 
-            var category = await _categoryRepository.GetByIdAsync(@event.CategoryId);
+            var category = await _categoryRepository.GetByIdAsync(@event!.CategoryId);
 
             eventDetailViewModel.Category = _mapper.Map<CategoryDto>(category);
 

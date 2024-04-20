@@ -26,7 +26,7 @@ namespace EventHubTicket.Management.Application.Features.Events.Commands.UpdateE
                 typeof(UpdateEventCommand),
                 typeof(Event));
 
-            await _eventRepository.UpdateAsync(eventToUpdate);
+            await _eventRepository.UpdateAsync(eventToUpdate!);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace EventHubTicket.Management.Application.Features.Events.Commands.DeleteE
         {
             var eventToDelete = await _eventRepository.GetByIdAsync(request.EventId);
 
-            await _eventRepository.DeleteAsync(eventToDelete);
+            await _eventRepository.DeleteAsync(eventToDelete!);
         }
     }
 }
