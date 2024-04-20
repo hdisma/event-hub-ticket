@@ -6,6 +6,5 @@ namespace EventHubTicket.Management.Application.Features.Events.Queries.GetEvent
     public class GetEventDetailQuery : IRequest<EventDetailViewModel>
     {
         public Guid Id { get; set; }
-
     }
 }
