@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using EventHubTicket.Management.Application.Abstractions.Infrastructure;
+﻿using EventHubTicket.Management.Application.Abstractions.Infrastructure;
 using EventHubTicket.Management.Application.Abstractions.Persistence;
 using EventHubTicket.Management.Domain.Entities;
 using MediatR;
@@ -10,16 +9,13 @@ namespace EventHubTicket.Management.Application.Features.Events.Queries.GetEvent
         EventExportFileViewModel>
     {
         private readonly IAsyncRepository<Event> _eventRepository;
-        private readonly IMapper _mapper;
         private readonly ICsvExporter _csvExporter;
 
         public GetEventsExportQueryHandler(
             IAsyncRepository<Event> eventRepository,
-            IMapper mapper,
             ICsvExporter csvExporter)
         {
             _eventRepository = eventRepository;
-            _mapper = mapper;
             _csvExporter = csvExporter;
         }
 
