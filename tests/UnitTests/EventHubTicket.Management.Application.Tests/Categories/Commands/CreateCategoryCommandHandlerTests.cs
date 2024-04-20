@@ -12,20 +12,20 @@ namespace EventHubTicket.Management.Application.Tests.Categories.Commands
         private readonly Mock<IAsyncRepository<Category>> _categoryRepository;
         private readonly IMapper _mapper;
 
-        private static List<Category> _categories = new();
+        private List<Category> _categories = new();
 
         public CreateCategoryCommandHandlerTests()
         {
             _categoryRepository = new Mock<IAsyncRepository<Category>>();
             _mapper = new MapperConfiguration(config => config.AddProfile<MappingProfile>())
                 .CreateMapper();
-
-            InitializeCategories();
         }
 
         [Fact]
         public async Task Handle_WhenValidCreateCategoryCommand_ReturnsCreatedCategory()
         {
+            InitializeCategories();
+
             _categoryRepository.Setup(cr => cr.CreateAsync(It.IsAny<Category>())).Returns((Category category) =>
             {
                 _categories.Add(category);
@@ -40,6 +40,27 @@ namespace EventHubTicket.Management.Application.Tests.Categories.Commands
             Assert.Multiple(
                 () => Assert.Equal("Musicals", result.Category.Name),
                 () => Assert.Equal(2, _categories.Count));
+        }
+
+        [Fact]
+        public async Task Handle_WhenInvalidCreateCategoryCommand_ResponseSuccessIsFalse()
+        {
+            InitializeCategories();
+
+            _categoryRepository.Setup(cr => cr.CreateAsync(It.IsAny<Category>())).Returns((Category category) =>
+            {
+                _categories.Add(category);
+                return Task.FromResult(category);
+            });
+
+            var createCategoryCommandHandler = new CreateCategoryCommandHandler(_categoryRepository.Object, _mapper);
+            var createCategoryCommand = new CreateCategoryCommand();
+
+            var result = await createCategoryCommandHandler.Handle(createCategoryCommand, CancellationToken.None);
+
+            Assert.Multiple(
+                () => Assert.False(result.Success),
+                () => Assert.Single(_categories));
         }
 
         private IReadOnlyList<Category> InitializeCategories()
