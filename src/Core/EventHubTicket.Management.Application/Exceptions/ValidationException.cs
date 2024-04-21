@@ -12,7 +12,7 @@ namespace EventHubTicket.Management.Application.Exceptions
 
             foreach (var error in validationResult.Errors)
             {
-                validationResult.Errors.Add(error);
+                ValidationErrors.Add(error.ErrorMessage);
             }
         }
     }
