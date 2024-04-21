@@ -20,6 +20,11 @@ namespace EventHubTicket.Management.Application.Features.Events.Commands.UpdateE
         {
             var eventToUpdate = await _eventRepository.GetByIdAsync(request.EventId);
 
+            if (eventToUpdate is null)
+            {
+                return;
+            }
+
             _mapper.Map(
                 request,
                 eventToUpdate,
