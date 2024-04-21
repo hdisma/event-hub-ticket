@@ -34,6 +34,8 @@ namespace EventHubTicket.Management.Infrastructure.Mail
             var sendgridMessage = MailHelper.CreateSingleEmail(from, to, subject, emailBody, emailBody);
             var response = await client.SendEmailAsync(sendgridMessage);
 
+            // TODO: Improve email sent/not sent flow
+
             if (response.StatusCode == HttpStatusCode.Accepted || response.StatusCode == HttpStatusCode.OK)
             {
                 return true;
