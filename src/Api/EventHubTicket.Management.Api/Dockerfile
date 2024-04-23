@@ -17,7 +17,7 @@ COPY ["src/Infrastructure/EventHubTicket.Management.Persistence/EventHubTicket.M
 RUN dotnet restore "./src/Api/EventHubTicket.Management.Api/EventHubTicket.Management.Api.csproj"
 COPY . .
 WORKDIR "/src/src/Api/EventHubTicket.Management.Api"
-RUN dotnet build "./EventHubTicket.Management.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "./EventHubTicket.Management.Api.csproj" -p:SkipEnsureDbContainerIsAvailable=true -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
