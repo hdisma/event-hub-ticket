@@ -1,10 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>cbcf2d46-e1b7-4de7-9ba8-a10d57e44ed4</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +15,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,5 +23,19 @@
     <ProjectReference Include="..\..\Infrastructure\EventHubTicket.Management.Infrastructure\EventHubTicket.Management.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Infrastructure\EventHubTicket.Management.Persistence\EventHubTicket.Management.Persistence.csproj" />
   </ItemGroup>
+
+  <Target Name="EnsureDbContainerIsAvailableInDebug"
+		  BeforeTargets="BeforeBuild;BeforeRebuild"
+		  Condition="'$(Configuration)'=='DEBUG'">
+		
+    <Exec WorkingDirectory="../../../dev-utils/"
+		  Condition="$([MSBuild]::IsOSPlatform('Linux')) Or $([MSBuild]::IsOSPlatform('OSX')) Or $([MSBuild]::IsOSPlatform('Unix'))"
+		  Command="bash docker-ensure-mssql-is-running.sh"/>
+
+    <Exec WorkingDirectory="../../../dev-utils/"
+		  Condition="$([MSBuild]::IsOSPlatform('Windows'))"
+		  Command="powershell -ExecutionPolicy Bypass -File docker-ensure-mssql-is-running.ps1"/>
+
+  </Target>
 
 </Project>
