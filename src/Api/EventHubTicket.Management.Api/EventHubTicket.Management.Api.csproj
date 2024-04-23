@@ -26,7 +26,7 @@
 
   <Target Name="EnsureDbContainerIsAvailableInDebug"
 		  BeforeTargets="BeforeBuild;BeforeRebuild"
-		  Condition="'$(Configuration)'=='DEBUG'">
+		  Condition="'$(Configuration)'=='DEBUG' And '$(SkipEnsureDbContainerIsAvailable)' == 'false'">
 		
     <Exec WorkingDirectory="../../../dev-utils/"
 		  Condition="$([MSBuild]::IsOSPlatform('Linux')) Or $([MSBuild]::IsOSPlatform('OSX')) Or $([MSBuild]::IsOSPlatform('Unix'))"
