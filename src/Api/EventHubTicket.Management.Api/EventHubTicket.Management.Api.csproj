@@ -24,18 +24,4 @@
     <ProjectReference Include="..\..\Infrastructure\EventHubTicket.Management.Persistence\EventHubTicket.Management.Persistence.csproj" />
   </ItemGroup>
 
-  <Target Name="EnsureDbContainerIsAvailableInDebug"
-		  BeforeTargets="BeforeBuild;BeforeRebuild"
-		  Condition="'$(Configuration)'=='DEBUG' And '$(SkipEnsureDbContainerIsAvailable)' == 'false'">
-		
-    <Exec WorkingDirectory="../../../dev-utils/"
-		  Condition="$([MSBuild]::IsOSPlatform('Linux')) Or $([MSBuild]::IsOSPlatform('OSX')) Or $([MSBuild]::IsOSPlatform('Unix'))"
-		  Command="bash docker-ensure-mssql-is-running.sh"/>
-
-    <Exec WorkingDirectory="../../../dev-utils/"
-		  Condition="$([MSBuild]::IsOSPlatform('Windows'))"
-		  Command="powershell -ExecutionPolicy Bypass -File docker-ensure-mssql-is-running.ps1"/>
-
-  </Target>
-
 </Project>
