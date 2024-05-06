@@ -36,6 +36,7 @@ namespace EventHubTicket.Management.Application.Features.Categories.Commands.Upd
 
             if (categoryToUpdate is null)
             {
+                // TODO: Implement custom exceptions for use cases
                 throw new ArgumentException($"Category {request.Id} not found.");
             }
 
